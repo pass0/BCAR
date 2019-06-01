@@ -16,7 +16,7 @@ site:url,
 sharing:1(no)|url,
 clean:1(can not)|2(incomplete)|3(complete),
 delete:(1(can not)|2(incomplete)|3(complete))+
-(url|lang("zh"|"en"|something)+String to explain how to delete the account),
+("en"+url|lang("zh"|"en"|something)+String to explain how to delete the account),
 replace:1(can not)|lang("zh"|"en"|something)+String to explain how to delete the account,
 history:1(can not)|2(incomplete)|3(complete),
 data:1(can not)|2(incomplete)|3(complete),
@@ -43,9 +43,9 @@ sharing - 同源服务的地址，URL，如果此地址在库中没有，应该�
 
 clean - 是否可以清理账户信息，1不可以，2可以不完全清理，3可以完全清理
 
-delete - 是否可以直接删除，1不可以，如果可以，说明操作方式
+delete - 是否可以直接删除，1不可以，如果可以，说明操作方式（并在开头第一位用2或3代表，不可以完全清理，或可以完全清理；在第二三位使用两个字符的lang语言标识码，如“zh”、“en”，即便单url也需要添加语言码）
 
-replace - 是否可以用删除以外的的方式清理账户信息，1不可以，如果可以，说明操作方式
+replace - 是否可以用删除以外的的方式清理账户信息，1不可以，如果可以，说明操作方式（并在开头第一位用2或3代表，不可以完全清理，或可以完全清理；在第二三位使用两个字符的lang语言标识码，如“zh”、“en”，即便单url也需要添加语言码）
 
 history - 是否可以清理账户痕迹（帖子、评价……），1不可以，2可以不完全清理，3可以完全清理
 
@@ -61,12 +61,12 @@ URL的特殊字符转义为UNICODE码（小写）。
 example：
 
 a_new_item =
-{
-name:xxx,
-site:"example.com/some/index.html",
+\[
+"name",
+"example.com/some/index.html",
 others……
-}
+\]
 
-a_new_item save to =
+a_new_item save to path =
 
 ./e/com/orz.com/example.com%2Fsome%2Findex.html.json
